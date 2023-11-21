@@ -1,0 +1,38 @@
+#canvas {
+  background: #eeeeef;
+  @apply flex flex-1 justify-center items-center;
+
+  .preview-container {
+    background-image: url('../../../public/products/paper-bag/white/empty.png');
+    height: 40rem;
+    width: 40rem;
+  
+    @apply relative bg-no-repeat bg-cover;
+
+    &::after {
+      content: "";
+      background-image: url('../../../public/products/paper-bag/white/foreground.png');
+      z-index: 10;
+
+      @apply inset-0 absolute bg-cover;
+    }
+
+    .preview {
+      max-width: 12rem;
+      z-index: 5;
+      top: 23rem;
+      left: 14rem;
+      mix-blend-mode: multiply;
+
+      @apply absolute;
+    }
+  }
+
+  .dropzone {
+    border: 2px dashed rgb(237 15 146);
+
+    path {
+      fill: rgb(237 15 146);
+    }
+  }
+}
