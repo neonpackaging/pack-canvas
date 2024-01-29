@@ -1,6 +1,14 @@
+@import './sections/Canvas.scss';
+@import './sections/Nav.scss';
+
 main {
   height: calc(100vh - 52.3px);
   width: 100vw;
 
   @apply flex;
+
+
+  .file-types {
+    display: none;
+  }
 }

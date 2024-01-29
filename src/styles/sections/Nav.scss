@@ -1,0 +1,13 @@
+.nav {
+  @apply flex py-2 px-4 border-0 border-b border-gray-300 border-solid justify-between items-center;
+
+  .nav-inner {
+    @apply flex items-center;
+
+    .nav-logo {
+      @apply w-24 mr-10;
+    }
+  }
+
+  
+}
