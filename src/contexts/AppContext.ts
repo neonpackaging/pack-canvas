@@ -1,15 +1,17 @@
 import { createContext } from 'react';
 
 type AppContextProps = {
+  backgroundColor: string;
   image: string;
-  mode: 'LIGHT' | 'DARK';
   isLooading: boolean;
+  mode: 'LIGHT' | 'DARK';
 }
 
 export const AppContext = createContext();
 
 export const appContext = createContext<AppContextProps>({
+  backgroundColor: 'transparent',
   image: '',
-  mode: 'LIGHT',
   isLoading: false,
+  mode: 'LIGHT',
 });

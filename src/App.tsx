@@ -9,12 +9,13 @@ import './styles/App.scss';
 
 function App() {
   const [state, setState] = useState<AppContextProps>({
-    img: '',
+    backgroundColor: 'transparent',
+    image: '',
     mode: 'LIGHT',
     isLoading: false,
   });
 
-  const setImage = img => {
+  const setImage = image => {
     setState({
       ...state,
       isLoading: true,
@@ -23,22 +24,38 @@ function App() {
     setTimeout(function() {
       setState({
         ...state,
-        img,
+        image,
         isLoading: false,
       })
     }, 300);
   };
 
+  const setBackgroundColor = backgroundColor => {
+    setState({
+      ...state,
+      isLoading: true,
+    });
+
+    setTimeout(function() {
+      setState({
+        ...state,
+        backgroundColor,
+        isLoading: false
+      });
+    }, 300);
+  }
+
   return (
     <AppContext.Provider
       value={{
         ...state,
-        setImage
+        setImage,
+        setBackgroundColor,
       }}
     >
       <Nav />
       <main>
-        {/* <Sidebar /> */}
+        <Sidebar />
         <Canvas />
       </main>
     </AppContext.Provider>

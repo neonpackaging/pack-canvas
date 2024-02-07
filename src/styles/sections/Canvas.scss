@@ -1,4 +1,35 @@
 .canvas {
   background: #eeeeef;
-  @apply flex flex-1 justify-center items-center;
+  @apply flex flex-1 flex-col justify-center items-center w-full h-full;
+  
+  .preview {
+    width: 570px;
+    height: 500px;
+    @apply flex justify-center items-center;
+
+    .product {
+      width: 570px;
+      @apply relative h-full bg-contain bg-no-repeat mx-auto;
+    }
+
+    .product .custom-brand {
+      width: 180px;
+      height: 165px;
+      top: 15rem;
+      left: calc(50% - 1.6rem);
+      mix-blend-mode: multiply;
+      filter: blur(0.4px);
+      transform: translateX(-50%) perspective(100px) rotateX(0deg) rotateY(357deg) rotateZ(0deg) skew(0deg, 3deg);
+      @apply absolute bg-contain bg-no-repeat bg-center;
+    }
+
+    .product .custom-brand.clickable {
+      border: 3px dashed #16567b;
+      @apply cursor-pointer;
+    }
+  }
+
+  .uploader {
+    display: none;
+  }
 }

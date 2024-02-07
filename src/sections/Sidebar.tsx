@@ -1,41 +1,46 @@
-import React from 'react';
-
-import styles from '../styles/sections/Sidebar.module.scss';
+import React, { useContext } from 'react';
+import { CirclePicker  } from 'react-color';
+import { AppContext } from '../contexts/AppContext.ts';
 
 function Sidebar() {
+  const appContext = useContext(AppContext);
+
+  const handleChangeBackground = (color) => {
+    appContext.setBackgroundColor(color.hex);
+  }
+
+  const handleRemoveImage = () => {
+    appContext.setImage('');
+  }
+
+  const handleRemoveBackground = () => {
+    appContext.setBackgroundColor('transparent');
+  }
+
+  const handleResetAll = () => {
+    if (window.confirm('Are you sure you want to reset?')) {
+      appContext.setImage('');
+      appContext.setBackgroundColor('transparent');
+    }
+  }
+
   return (
-    <section id={styles.sidebar}>
-      <div>
-        <div className={styles['sidebar-item']}>
-          <div>
-            <span className="material-symbols-outlined">
-              inventory_2
-            </span>
-          </div>
-          Boxes
-        </div>
-        <div className={styles['sidebar-item']}>
-          <div>
-            <span className="material-symbols-outlined">
-              local_mall
-            </span>
-          </div>
-          Paper Bags
-        </div>
-        <div className={styles['sidebar-item']}>
-          <div>
-          <span className="material-symbols-outlined">
-            restart_alt
-            </span>
-          </div>
-          Reset
+    <section className="sidebar">
+      <div className="content-block">
+        <div className="content-title">Background color:</div>
+        <div>
+          <CirclePicker onChange={handleChangeBackground}  />
         </div>
       </div>
-      {/* <div className={styles['sub-sidebar']}>
-        <div className={styles['sub-sidebar--option']}>
-          <img src="./products/magnetic-gift-box/white/empty.webp" alt="Product" />
-        </div>
-      </div> */}
+      <div className="content-block">
+        <button type="button" onClick={handleRemoveImage}>Remove image</button>
+      </div>
+      <div className="content-block">
+        <button type="button" onClick={handleRemoveBackground}>Remove background color</button>
+      </div>
+      <div className="content-block">
+        <button type="button" onClick={handleResetAll}>Reset all</button>
+      </div>
     </section>
   )
 }

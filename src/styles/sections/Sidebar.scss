@@ -1,0 +1,11 @@
+.sidebar {
+  min-width: 15rem;
+  @apply px-5;
+
+  .content-block {
+    @apply py-3 mb-4;
+    .content-title {
+      @apply mb-3;
+    }
+  }
+}
